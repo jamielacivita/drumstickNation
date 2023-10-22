@@ -7,7 +7,10 @@ def helloworld():
 
 def main():
     print(f"Hello JWTO.")
-    database_connect()
+    #database_connect()
+    f = Food.Food()
+    f.make_random()
+    print(f)
 def database_connect():
     mydb = mysql.connector.connect(host="localhost", user="jamie",password="t3g7i",database="drumstickNation")
     #print(mydb)

@@ -1,3 +1,5 @@
+import get_random
+
 class Food:
     def __init__(self):
         self.food=None
@@ -41,7 +43,8 @@ class Food:
         self.karma=tuple[18]
 
     def __str__(self):
-        print(f"Food : {self.food}")
+        print(f"Food : {self.food}".strip())
+        print(f"UPC : {self.upc}")
         print(f"Price : ${self.price}")
         print(f"Servings per container : {self.servings_per_container}")
         print(f"Calories : {self.calories}")
@@ -56,3 +59,24 @@ class Food:
         print(f"Added Sugars : {self.sugars_added_g}")
         print(f"Protein : {self.protein_g}")
         return ""
+
+    def make_random(self):
+        self.food = get_random.get_random_food_name()
+        self.upc = get_random.get_random_upc()
+        self.price = None
+        self.serving_size_g=None
+        self.servings_per_container=None
+        self.calories=None
+        self.fat_total_g=None
+        self.fat_saturated_g=None
+        self.fat_trans_g=None
+        self.cholesterol_mg=None
+        self.sodium_mg=None
+        self.carbohydrates_g=None
+        self.fiber_g=None
+        self.sugars_total_g=None
+        self.sugars_added_g=None
+        self.protein_g=None
+        self.food_group=None
+        self.karma=None
+
