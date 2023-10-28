@@ -125,23 +125,28 @@ class Food:
 
 
     def set_from_nutritionix_api(self,json_dict):
-        food_dict = json_dict["foods"][0]
-        self.food = food_dict["food_name"]
-        self.serving_size_g = food_dict["serving_weight_grams"]
-        self.servings_per_container = None
-        self.calories_per_serving = food_dict["nf_calories"]
-        self.fat_total_g = food_dict["nf_total_fat"]
-        self.fat_saturated_g = food_dict["nf_saturated_fat"]
-        self.fat_trans_g = None
-        self.cholesterol_mg = food_dict["nf_cholesterol"]
-        self.sodium_mg = food_dict["nf_sodium"]
-        self.carbohydrates_g = food_dict["nf_total_carbohydrate"]
-        self.fiber_g = food_dict["nf_dietary_fiber"]
-        self.sugars_total_g = food_dict["nf_sugars"]
-        self.sugars_added_g = None
-        self.protein_g = food_dict["nf_protein"]
-        self.food_group = None
-        self.karma = "3"
+
+        if json_dict is None:
+            print(f"No data to set on food object.")
+            return None
+        else:
+            food_dict = json_dict["foods"][0]
+            self.food = food_dict["food_name"]
+            self.serving_size_g = food_dict["serving_weight_grams"]
+            self.servings_per_container = None
+            self.calories_per_serving = food_dict["nf_calories"]
+            self.fat_total_g = food_dict["nf_total_fat"]
+            self.fat_saturated_g = food_dict["nf_saturated_fat"]
+            self.fat_trans_g = None
+            self.cholesterol_mg = food_dict["nf_cholesterol"]
+            self.sodium_mg = food_dict["nf_sodium"]
+            self.carbohydrates_g = food_dict["nf_total_carbohydrate"]
+            self.fiber_g = food_dict["nf_dietary_fiber"]
+            self.sugars_total_g = food_dict["nf_sugars"]
+            self.sugars_added_g = None
+            self.protein_g = food_dict["nf_protein"]
+            self.food_group = None
+            self.karma = "3"
 
         return None
 
