@@ -18,4 +18,5 @@ class Nutritionix():
             return None
 
         else:
+            print(f"{self.response.json()}")
             return self.response.json()

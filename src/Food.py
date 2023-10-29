@@ -42,22 +42,46 @@ class Food:
         self.food_group=tuple[17]
         self.karma=tuple[18]
 
+
+    def scale_to_serving_size(self, consumption_size):
+        scale_factor = consumption_size / self.serving_size_g
+        #self.serving_size_g=None
+
+        self.calories_per_serving = int(self.calories_per_serving * scale_factor)
+        self.fat_total_g = int(self.fat_total_g * scale_factor)
+        self.fat_saturated_g = int(self.fat_saturated_g * scale_factor)
+        if self.fat_trans_g is not None:
+            self.fat_trans_g = int(self.fat_trans_g * scale_factor)
+        self.cholesterol_mg = int(self.cholesterol_mg * scale_factor)
+        self.sodium_mg = int(self.sodium_mg * scale_factor)
+        self.carbohydrates_g = int(self.carbohydrates_g * scale_factor)
+        self.fiber_g = int(self.fiber_g * scale_factor)
+        self.sugars_total_g = int(self.sugars_total_g * scale_factor)
+        if self.sugars_added_g is not None:
+            self.sugars_added_g = int(self.sugars_added_g * scale_factor)
+        self.protein_g = int(self.protein_g * scale_factor)
+
+
+
+
+
     def __str__(self):
         print(f"Food : {self.food}".strip())
         print(f"UPC : {self.upc}")
         print(f"Price : ${self.price}")
+        print(f"Serving Size (g) : {self.serving_size_g}")
         print(f"Servings per container : {self.servings_per_container}")
         print(f"Calories : {self.calories_per_serving}")
         print(f"Total fat : {self.fat_total_g}")
         print(f"Saturated fat : {self.fat_saturated_g}")
         print(f"Trans fat : {self.fat_trans_g}")
-        print(f"Cholestrol : {self.cholesterol_mg}")
-        print(f"Sodium : {self.sodium_mg}")
+        print(f"Cholestrol (mg): {self.cholesterol_mg}")
+        print(f"Sodium (mg): {self.sodium_mg}")
         print(f"Total Carbohydrates : {self.carbohydrates_g}")
         print(f"Fiber : {self.fiber_g}")
         print(f"Total Sugards : {self.sugars_total_g}")
         print(f"Added Sugars : {self.sugars_added_g}")
-        print(f"Protein : {self.protein_g}")
+        print(f"Protein (g): {self.protein_g}")
         return ""
 
 
